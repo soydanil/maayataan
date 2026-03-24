@@ -1,0 +1,86 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Plataforma soberana de corpus lingüístico maya yucateco' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} — maayataan</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Ir al contenido</a>
+    <nav>
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">maayataan</a>
+        <div class="nav-links">
+          <a href="/browse">Corpus</a>
+          <a href="/story">Historia</a>
+        </div>
+      </div>
+    </nav>
+    <main id="main">
+      <slot />
+    </main>
+    <footer>
+      <p>maayataan — corpus abierto de maya yucateco</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
+
+<style>
+  nav {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-text);
+  }
+
+  .nav-logo:hover {
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-3);
+    min-height: 60vh;
+  }
+
+  footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-4) var(--space-3);
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+</style>

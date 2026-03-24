@@ -1,0 +1,33 @@
+# gstack
+
+Use the `/browse` skill from gstack for all web browsing. Never use `mcp__claude-in-chrome__*` tools.
+
+Available gstack skills:
+- `/office-hours` — async Q&A / office hours workflow
+- `/plan-ceo-review` — prepare a plan for CEO review
+- `/plan-eng-review` — prepare a plan for engineering review
+- `/plan-design-review` — prepare a plan for design review
+- `/design-consultation` — consult on design decisions
+- `/review` — code review
+- `/ship` — ship a change
+- `/land-and-deploy` — land and deploy a change
+- `/canary` — canary deploy
+- `/benchmark` — run benchmarks
+- `/browse` — web browsing (use this instead of any MCP browser tools)
+- `/qa` — QA a change
+- `/qa-only` — QA without other steps
+- `/design-review` — design review
+- `/setup-browser-cookies` — set up browser cookies
+- `/setup-deploy` — set up deployment
+- `/retro` — retrospective
+- `/investigate` — investigate an issue
+- `/document-release` — document a release
+- `/codex` — codex workflow
+- `/cso` — CSO workflow
+- `/careful` — careful/cautious mode
+- `/freeze` — freeze a branch
+- `/guard` — guard a branch
+- `/unfreeze` — unfreeze a branch
+- `/gstack-upgrade` — upgrade gstack
+
+If gstack skills aren't working, run `cd .claude/skills/gstack && ./setup` to build the binary and register skills.

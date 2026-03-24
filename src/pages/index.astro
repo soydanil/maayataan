@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LiveCounter from '../components/LiveCounter';
+import ContributionForm from '../components/ContributionForm';
+---
+
+<Layout title="Contribuye">
+  <section class="hero">
+    <p class="hero-maya">Ko'ox kanik maaya</p>
+    <p class="hero-es">Aprendamos maya</p>
+  </section>
+
+  <LiveCounter client:load />
+
+  <section class="form-section">
+    <h2>Comparte tu voz</h2>
+    <p class="form-intro">
+      Cada palabra que compartes ayuda a preservar y fortalecer el maya yucateco.
+    </p>
+    <ContributionForm client:load />
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: var(--space-5) 0;
+  }
+
+  .hero-maya {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .hero-es {
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin-top: var(--space-1);
+  }
+
+  .form-section {
+    padding-top: var(--space-5);
+  }
+
+  .form-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .form-intro {
+    color: var(--color-muted);
+    margin-bottom: var(--space-4);
+    font-size: 0.95rem;
+  }
+</style>

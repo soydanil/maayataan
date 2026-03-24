@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdminReview from '../components/AdminReview';
+---
+
+<Layout title="Admin">
+  <h1>Revisión de contribuciones</h1>
+  <p class="page-intro">
+    Revisa y aprueba las contribuciones pendientes al corpus.
+  </p>
+  <AdminReview client:load />
+</Layout>
+
+<style>
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .page-intro {
+    color: var(--color-muted);
+    margin-bottom: var(--space-5);
+  }
+</style>

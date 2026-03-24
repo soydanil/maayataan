@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LiveCounter from '../components/LiveCounter';
+---
+
+<Layout title="Historia" description="La historia del corpus maya yucateco">
+  <article class="story">
+    <h1>U tsikbal maayataan</h1>
+    <p class="subtitle">La historia de maayataan</p>
+
+    <section>
+      <p>
+        El maya yucateco es una lengua viva hablada por más de 800,000 personas
+        en la Península de Yucatán. Sin embargo, los recursos digitales para esta
+        lengua son escasos — no hay corpus abierto ni datos suficientes para
+        entrenar modelos de inteligencia artificial.
+      </p>
+    </section>
+
+    <section>
+      <h2>¿Qué es maayataan?</h2>
+      <p>
+        maayataan es una plataforma abierta para que la comunidad maya contribuya
+        palabras, frases y grabaciones de audio. Cada contribución se convierte en
+        parte de un corpus lingüístico que puede ser usado por investigadores,
+        educadores y desarrolladores de tecnología.
+      </p>
+    </section>
+
+    <section>
+      <h2>¿Por qué importa?</h2>
+      <p>
+        Sin datos, no hay tecnología. Sin tecnología en maya, la lengua queda
+        excluida del mundo digital. maayataan existe para cerrar esa brecha —
+        un corpus construido por la comunidad, para la comunidad.
+      </p>
+    </section>
+
+    <section class="counter-section">
+      <h2>El corpus hoy</h2>
+      <LiveCounter client:load />
+      <p class="counter-cta">
+        <a href="/">Contribuir al corpus →</a>
+      </p>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .story {
+    max-width: 560px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    color: var(--color-muted);
+    margin-bottom: var(--space-5);
+  }
+
+  section {
+    margin-bottom: var(--space-5);
+  }
+
+  section h2 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-2);
+  }
+
+  section p {
+    line-height: 1.7;
+  }
+
+  .counter-section {
+    text-align: center;
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .counter-cta {
+    margin-top: var(--space-3);
+  }
+
+  .counter-cta a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>
