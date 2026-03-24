@@ -37,17 +37,29 @@ export default function QRPoster() {
     ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 36px -apple-system, BlinkMacSystemFont, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText("KO'OX KANIK MAAYA", w / 2, 100);
+    ctx.fillText("KO'OX T'AANIK MAAYA", w / 2, 80);
 
     // Subtitle (Spanish)
     ctx.fillStyle = '#6B6560';
     ctx.font = '20px DM Sans, sans-serif';
-    ctx.fillText('Aprendamos maya', w / 2, 135);
+    ctx.fillText('Hablemos maya', w / 2, 112);
+
+    // Pitch
+    ctx.fillStyle = '#1A1A18';
+    ctx.font = '14px DM Sans, sans-serif';
+    const pitch1 = '+800,000 personas hablan maya yucateco pero casi no existen';
+    const pitch2 = 'datos digitales para que IA sea accesible en nuestra lengua.';
+    const pitch3 = 'Cada voz que se suma cambia eso.';
+    ctx.fillText(pitch1, w / 2, 152);
+    ctx.fillText(pitch2, w / 2, 172);
+    ctx.fillStyle = '#1B6B5A';
+    ctx.font = 'bold 14px DM Sans, sans-serif';
+    ctx.fillText(pitch3, w / 2, 198);
 
     // QR code
-    const qrSize = 280;
+    const qrSize = 260;
     const qrX = (w - qrSize) / 2;
-    const qrY = 180;
+    const qrY = 225;
 
     try {
       const qrDataUrl = await QRCode.toDataURL(SITE_URL, {
