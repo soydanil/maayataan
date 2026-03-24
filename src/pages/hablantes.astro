@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpeakerForm from '../components/SpeakerForm';
+---
+
+<Layout title="Hablantes" description="Regístrate como hablante o lingüista de maya yucateco">
+  <section class="hablantes-hero">
+    <a href="/sumate" class="back-link">← Súmate</a>
+    <h1 class="hero-maya">Ko'ox ts'aik k t'aan</h1>
+    <p class="hero-es">Registremos nuestra voz</p>
+    <p class="hero-desc">
+      Si hablas maya yucateco — de cuna, por estudio o por pasión — te invitamos
+      a registrarte. Tu voz es lo que hace posible este corpus.
+    </p>
+  </section>
+
+  <div class="form-container">
+    <SpeakerForm client:load />
+  </div>
+</Layout>
+
+<style>
+  .hablantes-hero {
+    padding: var(--space-5) 0;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: inline-block;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero-maya {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .hero-es {
+    color: var(--text-muted);
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 520px;
+  }
+
+  .form-container {
+    max-width: 480px;
+    padding: var(--space-4) 0 var(--space-6);
+  }
+</style>

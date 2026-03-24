@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AllyForm from '../components/AllyForm';
+---
+
+<Layout title="Aliados" description="Súmate como aliado — desarrollo, diseño, datos, donaciones o instituciones">
+  <section class="aliados-hero">
+    <a href="/sumate" class="back-link">← Súmate</a>
+    <h1 class="hero-title">Súmate como aliado</h1>
+    <p class="hero-desc">
+      maayataan es un proyecto abierto. Si puedes contribuir con código, diseño,
+      conexiones API, recursos o desde tu institución — queremos saber de ti.
+    </p>
+  </section>
+
+  <div class="form-container">
+    <AllyForm client:load />
+  </div>
+</Layout>
+
+<style>
+  .aliados-hero {
+    padding: var(--space-5) 0;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: inline-block;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 520px;
+    margin-top: var(--space-2);
+  }
+
+  .form-container {
+    max-width: 480px;
+    padding: var(--space-4) 0 var(--space-6);
+  }
+</style>

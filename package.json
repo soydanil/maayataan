@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && wrangler pages deploy dist/ --project-name maayataan"
+    "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",

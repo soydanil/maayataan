@@ -1,27 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LiveCounter from '../components/LiveCounter';
-import ContributionForm from '../components/ContributionForm';
 ---
 
-<Layout title="Contribuye">
+<Layout title="Inicio">
   <section class="hero">
     <p class="hero-label">Corpus abierto de maya yucateco</p>
     <h1 class="hero-maya">Ko'ox t'aanik<br>maaya</h1>
     <p class="hero-es">Hablemos maya</p>
+    <a href="/contribuir" class="hero-cta">Ts'aik a t'aan — Contribuir</a>
   </section>
+
+  <div class="stratum"></div>
+
+  <section class="problem">
+    <h2 class="section-maya">Ba'ax k-beetik</h2>
+    <p class="section-es">Qué hacemos</p>
+    <p class="problem-text">
+      El maya yucateco lo hablan más de 800,000 personas, pero casi no existen datos digitales
+      para entrenar inteligencia artificial en nuestra lengua. Sin datos, no hay traductores,
+      asistentes de voz, ni herramientas educativas. Cada voz que se suma cambia eso.
+    </p>
+  </section>
+
+  <div class="stratum"></div>
+
+  <section class="how">
+    <h2 class="section-maya">Bix u meyaj</h2>
+    <p class="section-es">Cómo funciona</p>
+    <ol class="steps">
+      <li>
+        <span class="step-maya">T'aan</span>
+        <span class="step-es">Escribe o graba una frase en maya y su traducción.</span>
+      </li>
+      <li>
+        <span class="step-maya">Ts'aak</span>
+        <span class="step-es">La comunidad valida que la contribución sea correcta.</span>
+      </li>
+      <li>
+        <span class="step-maya">Séeb</span>
+        <span class="step-es">El corpus crece y queda abierto para que cualquiera lo use.</span>
+      </li>
+    </ol>
+  </section>
+
+  <div class="stratum"></div>
 
   <LiveCounter client:load />
 
   <div class="stratum"></div>
 
-  <section class="form-section">
-    <p class="form-label">Comparte tu voz</p>
-    <h2>Ts'aik a t'aan</h2>
-    <p class="form-intro">
-      Cada palabra que compartes ayuda a preservar y fortalecer el maya yucateco.
-    </p>
-    <ContributionForm client:load />
+  <section class="cta-section">
+    <h2 class="cta-maya">A t'aane' k'a'abéet</h2>
+    <p class="cta-es">Tu voz importa</p>
+    <a href="/contribuir" class="cta-btn">Contribuir ahora</a>
+    <a href="/sumate" class="sumate-link">¿Quieres ayudar de otra forma? Súmate →</a>
   </section>
 </Layout>
 
@@ -32,7 +65,7 @@ import ContributionForm from '../components/ContributionForm';
 
   .hero-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -41,7 +74,7 @@ import ContributionForm from '../components/ContributionForm';
 
   .hero-maya {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -53,35 +86,138 @@ import ContributionForm from '../components/ContributionForm';
     margin-top: var(--space-2);
   }
 
+  .hero-cta {
+    display: inline-block;
+    margin-top: var(--space-5);
+    padding: var(--space-3) var(--space-4);
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1rem;
+    min-height: 48px;
+    line-height: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-cta:hover {
+    background: var(--primary-hover);
+    text-decoration: none;
+  }
+
   .stratum {
     height: 4px;
     background: var(--surface);
     margin: var(--space-5) 0;
   }
 
-  .form-section {
-    padding-top: var(--space-3);
+  /* Section headings — bilingual */
+  .section-maya {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
   }
 
-  .form-label {
+  .section-es {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-1);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-3);
   }
 
-  .form-section h2 {
+  /* Problem */
+  .problem-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  /* Steps */
+  .steps {
+    list-style: none;
+    counter-reset: steps;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .steps li {
+    counter-increment: steps;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .steps li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--primary);
+  }
+
+  .step-maya {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .step-es {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* CTA section */
+  .cta-section {
+    text-align: center;
+    padding: var(--space-5) 0 var(--space-3);
+  }
+
+  .cta-maya {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: var(--space-1);
   }
 
-  .form-intro {
+  .cta-es {
     color: var(--text-muted);
+    font-size: 0.9rem;
     margin-bottom: var(--space-4);
-    font-size: 0.95rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 600;
+    min-height: 48px;
+    line-height: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .cta-btn:hover {
+    background: var(--primary-hover);
+    text-decoration: none;
+  }
+
+  .sumate-link {
+    display: block;
+    margin-top: var(--space-3);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .sumate-link:hover {
+    color: var(--primary);
   }
 </style>

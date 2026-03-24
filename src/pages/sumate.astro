@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Súmate" description="Únete a la comunidad de maayataan — hablantes, lingüistas, desarrolladores e instituciones">
+  <section class="sumate-hero">
+    <p class="sumate-label">Ko'one'ex — Vamos juntos</p>
+    <h1 class="sumate-heading">Súmate a maayataan</h1>
+    <p class="sumate-sub">Elige cómo quieres participar</p>
+  </section>
+
+  <div class="doors">
+    <a href="/hablantes" class="door door-speakers">
+      <div class="door-accent door-accent-speakers"></div>
+      <div class="door-body">
+        <h2 class="door-maya">T'aan maaya</h2>
+        <p class="door-es">Hablante / Lingüista</p>
+        <p class="door-desc">
+          ¿Hablas maya yucateco? Regístrate para contribuir con tu voz,
+          validar traducciones y ser parte de la comunidad de hablantes.
+        </p>
+        <span class="door-cta">Registrarme →</span>
+      </div>
+    </a>
+
+    <a href="/aliados" class="door door-allies">
+      <div class="door-accent door-accent-allies"></div>
+      <div class="door-body">
+        <h2 class="door-title">Aliado</h2>
+        <p class="door-subtitle">Desarrollo · Diseño · API · Donación · Institución</p>
+        <p class="door-desc">
+          ¿Quieres contribuir con código, diseño, datos, recursos
+          o desde tu institución? Cuéntanos cómo puedes ayudar.
+        </p>
+        <span class="door-cta">Sumarme →</span>
+      </div>
+    </a>
+  </div>
+</Layout>
+
+<style>
+  .sumate-hero {
+    text-align: center;
+    padding: var(--space-6) 0 var(--space-5);
+  }
+
+  .sumate-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .sumate-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .sumate-sub {
+    color: var(--text-muted);
+    margin-top: var(--space-2);
+  }
+
+  .doors {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .door {
+    display: block;
+    border: 1px solid var(--surface);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    overflow: hidden;
+    transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .door:hover {
+    border-color: var(--text-muted);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+  }
+
+  .door-accent {
+    height: 4px;
+  }
+
+  .door-accent-speakers {
+    background: var(--primary);
+  }
+
+  .door-accent-allies {
+    background: var(--accent);
+  }
+
+  .door-body {
+    padding: var(--space-4);
+  }
+
+  .door-maya {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .door-es {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-3);
+  }
+
+  .door-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .door-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-3);
+  }
+
+  .door-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: var(--space-3);
+  }
+
+  .door-cta {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--primary);
+  }
+
+  .door-allies .door-cta {
+    color: var(--accent);
+  }
+</style>

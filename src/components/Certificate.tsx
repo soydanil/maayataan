@@ -9,7 +9,7 @@ interface CertificateProps {
 const SITE_URL = 'https://maayataan.org';
 
 function getShareText(name: string, entry: number) {
-  return `Contribuí al corpus abierto de maya yucateco — entrada #${entry}. Ko'ox t'aanik maaya. ${SITE_URL}`;
+  return `Contribuí al corpus abierto de maya yucateco — entrada #${entry}. ¿Sabes maya? Contribuye en: ${SITE_URL}`;
 }
 
 export default function Certificate({ contributorName, entryNumber, totalCount }: CertificateProps) {
@@ -107,9 +107,13 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
     ctx.font = '28px sans-serif';
     ctx.fillText('Comparte tu voz', w / 2, cardY + cardH + 150);
 
+    ctx.fillStyle = '#6B6560';
+    ctx.font = '24px sans-serif';
+    ctx.fillText('¿Sabes maya? Contribuye en:', w / 2, cardY + cardH + 210);
+
     ctx.fillStyle = '#1B6B5A';
     ctx.font = 'bold 32px sans-serif';
-    ctx.fillText('maayataan.org', w / 2, cardY + cardH + 230);
+    ctx.fillText('maayataan.org', w / 2, cardY + cardH + 255);
 
     // Bottom accent
     ctx.fillStyle = '#1B6B5A';

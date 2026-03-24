@@ -194,6 +194,7 @@ img {
 textarea,
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="password"],
 input[type="search"],
 select {
@@ -207,6 +208,7 @@ select {
 textarea:focus,
 input[type="text"]:focus,
 input[type="email"]:focus,
+input[type="tel"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 select:focus {

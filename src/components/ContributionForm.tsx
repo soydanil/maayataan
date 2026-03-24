@@ -176,6 +176,13 @@ export default function ContributionForm() {
         <Button variant="primary" onClick={handleReset}>
           Contribuir otra vez
         </Button>
+
+        <div className="sumate-invite">
+          <p className="sumate-invite-text">¿Quieres estar más cerca de la comunidad?</p>
+          <a href="/hablantes" className="sumate-invite-link">
+            Regístrate como hablante y ayúdanos a validar →
+          </a>
+        </div>
         <style>{`
           .success-screen { text-align: center; }
           .success-maya {
@@ -186,6 +193,24 @@ export default function ContributionForm() {
           .success-es {
             color: var(--text-muted);
             margin-bottom: var(--space-4);
+          }
+          .sumate-invite {
+            margin-top: var(--space-5);
+            padding: var(--space-3);
+            border: 1px solid var(--surface);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+          }
+          .sumate-invite-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: var(--space-2);
+          }
+          .sumate-invite-link {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
           }
         `}</style>
       </div>

@@ -1,0 +1,34 @@
+# HTML pages — never cache, always fetch latest
+/*.html
+  Cache-Control: no-cache
+
+/
+  Cache-Control: no-cache
+
+/contribuir
+  Cache-Control: no-cache
+
+/corpus
+  Cache-Control: no-cache
+
+/historia
+  Cache-Control: no-cache
+
+/admin
+  Cache-Control: no-cache
+
+/qr
+  Cache-Control: no-cache
+
+/sumate
+  Cache-Control: no-cache
+
+/hablantes
+  Cache-Control: no-cache
+
+/aliados
+  Cache-Control: no-cache
+
+# Hashed assets (JS, CSS) — cache forever
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

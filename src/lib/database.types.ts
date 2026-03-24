@@ -28,6 +28,29 @@ export interface Contribution {
   created_at: string;
 }
 
+export interface SpeakerInterest {
+  id: string;
+  name: string;
+  phone: string;
+  email: string | null;
+  dialect: Dialect | null;
+  is_native_speaker: boolean;
+  wants_to_validate: boolean;
+  message: string | null;
+  created_at: string;
+}
+
+export interface AllyInterest {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  organization: string | null;
+  roles: string[];
+  message: string | null;
+  created_at: string;
+}
+
 export interface Database {
   public: {
     Tables: {
@@ -35,6 +58,16 @@ export interface Database {
         Row: Contribution;
         Insert: Omit<Contribution, 'id' | 'created_at' | 'status'>;
         Update: Partial<Contribution>;
+      };
+      speakers_interest: {
+        Row: SpeakerInterest;
+        Insert: Omit<SpeakerInterest, 'id' | 'created_at'>;
+        Update: Partial<SpeakerInterest>;
+      };
+      allies_interest: {
+        Row: AllyInterest;
+        Insert: Omit<AllyInterest, 'id' | 'created_at'>;
+        Update: Partial<AllyInterest>;
       };
     };
   };
