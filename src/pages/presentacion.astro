@@ -49,8 +49,10 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
       <section class="slide slide-problem" data-index="0">
         <div class="slide-inner">
           <p class="slide-label">01</p>
-          <h1 class="slide-maya">Mix máak u<br>yu'ubik máak</h1>
-          <p class="slide-es">Nadie escucha a nadie</p>
+          <div class="slide-heading">
+            <h1 class="slide-maya">Mix máak u<br>yu'ubik máak</h1>
+            <p class="slide-es">Nadie escucha a nadie</p>
+          </div>
           <div class="slide-body">
             <p class="stat">
               <span class="stat-number">800,000+</span>
@@ -74,8 +76,10 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
       <section class="slide slide-solution" data-index="1">
         <div class="slide-inner">
           <p class="slide-label">02</p>
-          <h1 class="slide-maya">maayataan</h1>
-          <p class="slide-es">Plataforma abierta de corpus lingüístico</p>
+          <div class="slide-heading">
+            <h1 class="slide-maya">maayataan</h1>
+            <p class="slide-es">Plataforma abierta de corpus lingüístico</p>
+          </div>
           <div class="slide-body">
             <p class="slide-text">Open-source. Diseñada para recolectar, validar y estructurar datos lingüísticos en maya yucateco — texto, traducciones y audio — listos para entrenar modelos de IA.</p>
             <p class="slide-text">Construida por y para la comunidad maya hablante.</p>
@@ -87,22 +91,27 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
       <section class="slide slide-how" data-index="2">
         <div class="slide-inner">
           <p class="slide-label">03</p>
-          <h1 class="slide-maya">Bix u meyaj</h1>
-          <p class="slide-es">Cómo funciona</p>
+          <div class="slide-heading">
+            <h1 class="slide-maya">Bix u meyaj</h1>
+            <p class="slide-es">Cómo funciona</p>
+          </div>
           <div class="slide-body">
             <div class="flow">
               <div class="flow-step">
                 <span class="flow-name">T'aan</span>
+                <span class="flow-name-es">Hablar</span>
                 <span class="flow-desc">Escribe o graba una frase en maya y su traducción al español.</span>
               </div>
               <div class="flow-arrow" aria-hidden="true"></div>
               <div class="flow-step">
                 <span class="flow-name">Ts'aak</span>
+                <span class="flow-name-es">Curar / validar</span>
                 <span class="flow-desc">La comunidad valida que la contribución sea correcta.</span>
               </div>
               <div class="flow-arrow" aria-hidden="true"></div>
               <div class="flow-step">
                 <span class="flow-name">Séeb</span>
+                <span class="flow-name-es">Rápido / listo</span>
                 <span class="flow-desc">El corpus crece y queda abierto para que cualquiera lo use.</span>
               </div>
             </div>
@@ -115,8 +124,10 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
       <section class="slide slide-team" data-index="3">
         <div class="slide-inner">
           <p class="slide-label">04</p>
-          <h1 class="slide-maya">Máax to'on</h1>
-          <p class="slide-es">Quiénes somos</p>
+          <div class="slide-heading">
+            <h1 class="slide-maya">Máax to'on</h1>
+            <p class="slide-es">Quiénes somos</p>
+          </div>
           <div class="slide-body">
             <div class="team">
               <div class="team-member">
@@ -148,8 +159,10 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
       <section class="slide slide-vision" data-index="4">
         <div class="slide-inner">
           <p class="slide-label">05</p>
-          <h1 class="slide-maya">Bix k-ilik<br>samal</h1>
-          <p class="slide-es">Cómo vemos el mañana</p>
+          <div class="slide-heading">
+            <h1 class="slide-maya">Bix k-ilik<br>samal</h1>
+            <p class="slide-es">Cómo vemos el mañana</p>
+          </div>
           <div class="slide-body">
             <p class="slide-text">El corpus como infraestructura pública. Un bien común digital que habilita:</p>
             <ul class="vision-list">
@@ -437,6 +450,18 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
     margin-bottom: 16px;
   }
 
+  .slide-heading {
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .slide-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+  }
+
   .slide-maya {
     font-family: var(--font-display);
     font-weight: 900;
@@ -444,14 +469,26 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
     line-height: 1.05;
     letter-spacing: -0.03em;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .slide-maya {
+      margin-bottom: 0;
+    }
   }
 
   .slide-es {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    margin-bottom: 32px;
+    opacity: 0.6;
+  }
+
+  @media (min-width: 768px) {
+    .slide-es {
+      white-space: nowrap;
+    }
   }
 
   .slide-body {
@@ -521,6 +558,14 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--primary);
+  }
+
+  .flow-name-es {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    font-style: italic;
   }
 
   .flow-desc {
