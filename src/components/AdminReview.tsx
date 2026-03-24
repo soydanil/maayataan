@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { Button, FormField, Card } from './ui';
 import type { Contribution } from '../lib/database.types';
 import type { Session } from '@supabase/supabase-js';
 
@@ -77,8 +78,7 @@ export default function AdminReview() {
   if (!session) {
     return (
       <form onSubmit={handleLogin} className="login-form">
-        <div className="form-field">
-          <label htmlFor="admin-email">Correo electrónico</label>
+        <FormField label="Correo electrónico" htmlFor="admin-email">
           <input
             type="email"
             id="admin-email"
@@ -86,9 +86,8 @@ export default function AdminReview() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div className="form-field">
-          <label htmlFor="admin-password">Contraseña</label>
+        </FormField>
+        <FormField label="Contraseña" htmlFor="admin-password">
           <input
             type="password"
             id="admin-password"
@@ -96,9 +95,9 @@ export default function AdminReview() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
+        </FormField>
         {authError && <p className="form-error" role="alert">{authError}</p>}
-        <button type="submit" className="btn btn-primary">Iniciar sesión</button>
+        <Button type="submit" variant="primary">Iniciar sesión</Button>
 
         <style>{`
           .login-form {
@@ -107,43 +106,6 @@ export default function AdminReview() {
             display: flex;
             flex-direction: column;
             gap: var(--space-3);
-          }
-          .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-1);
-          }
-          .form-field label {
-            font-weight: 600;
-            font-size: 0.9rem;
-          }
-          input[type="email"],
-          input[type="password"] {
-            padding: var(--space-3);
-            border: 1px solid var(--surface);
-            border-radius: var(--radius);
-            background: white;
-            width: 100%;
-          }
-          input:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-          }
-          .form-error {
-            color: var(--error);
-            font-size: 0.9rem;
-          }
-          .btn {
-            padding: var(--space-3);
-            border: none;
-            border-radius: var(--radius);
-            cursor: pointer;
-            font-weight: 600;
-            min-height: 44px;
-          }
-          .btn-primary {
-            background: var(--primary);
-            color: white;
           }
         `}</style>
       </form>
@@ -154,9 +116,9 @@ export default function AdminReview() {
     <div className="admin-list">
       <div className="admin-header">
         <span className="admin-user">{session.user.email}</span>
-        <button type="button" className="btn btn-logout" onClick={handleLogout}>
+        <Button variant="ghost" onClick={handleLogout}>
           Cerrar sesión
-        </button>
+        </Button>
       </div>
 
       {loading ? (
@@ -169,7 +131,7 @@ export default function AdminReview() {
         <>
           <p className="admin-count">{entries.length} entradas pendientes</p>
           {entries.map((entry) => (
-            <div key={entry.id} className="review-card">
+            <Card key={entry.id}>
               <div className="review-content">
                 <p className="review-maya">{entry.maya_text}</p>
                 <p className="review-es">{entry.spanish_translation}</p>
@@ -185,26 +147,24 @@ export default function AdminReview() {
                 </div>
               </div>
               <div className="review-actions">
-                <button
-                  type="button"
-                  className="btn btn-approve"
+                <Button
+                  variant="approve"
                   disabled={updating === entry.id}
                   onClick={() => updateStatus(entry.id, 'approved')}
                   aria-label={`Aprobar entrada de ${entry.contributor_name}`}
                 >
                   Aprobar
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-reject"
+                </Button>
+                <Button
+                  variant="reject"
                   disabled={updating === entry.id}
                   onClick={() => updateStatus(entry.id, 'rejected')}
                   aria-label={`Rechazar entrada de ${entry.contributor_name}`}
                 >
                   Rechazar
-                </button>
+                </Button>
               </div>
-            </div>
+            </Card>
           ))}
         </>
       )}
@@ -222,15 +182,6 @@ export default function AdminReview() {
           font-size: 0.85rem;
           color: var(--text-muted);
         }
-        .btn-logout {
-          padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          background: white;
-          cursor: pointer;
-          font-size: 0.85rem;
-          min-height: 44px;
-        }
         .admin-status, .admin-empty {
           text-align: center;
           padding: var(--space-5);
@@ -246,12 +197,6 @@ export default function AdminReview() {
           display: flex;
           flex-direction: column;
           gap: var(--space-3);
-        }
-        .review-card {
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          padding: var(--space-3);
-          background: white;
         }
         .review-maya {
           font-weight: 600;
@@ -276,28 +221,6 @@ export default function AdminReview() {
         .review-actions {
           display: flex;
           gap: var(--space-2);
-        }
-        .btn {
-          padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          cursor: pointer;
-          font-weight: 600;
-          min-height: 44px;
-        }
-        .btn:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-        .btn-approve {
-          background: var(--success);
-          color: white;
-          border-color: var(--success);
-        }
-        .btn-reject {
-          background: white;
-          color: var(--error);
-          border-color: var(--error);
         }
       `}</style>
     </div>

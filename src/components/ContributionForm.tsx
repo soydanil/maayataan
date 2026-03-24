@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
+import { Button, FormField } from './ui';
 import Certificate from './Certificate';
 import type { Dialect, Source } from '../lib/database.types';
 
@@ -172,9 +173,9 @@ export default function ContributionForm() {
           entryNumber={successData.entryNumber}
           totalCount={successData.totalCount}
         />
-        <button type="button" className="btn btn-primary" onClick={handleReset}>
+        <Button variant="primary" onClick={handleReset}>
           Contribuir otra vez
-        </button>
+        </Button>
         <style>{`
           .success-screen { text-align: center; }
           .success-maya {
@@ -193,8 +194,7 @@ export default function ContributionForm() {
 
   return (
     <form onSubmit={handleSubmit} className="contribution-form">
-      <div className="form-field">
-        <label htmlFor="maya-text">Texto en maya</label>
+      <FormField label="A t'aan" sublabel="Tu texto en maya" htmlFor="maya-text">
         <textarea
           id="maya-text"
           value={mayaText}
@@ -204,10 +204,9 @@ export default function ContributionForm() {
           maxLength={2000}
           required
         />
-      </div>
+      </FormField>
 
-      <div className="form-field">
-        <label htmlFor="spanish-translation">Traducción al español</label>
+      <FormField label="U tsikbal ich kastelan t'aan" sublabel="Traducción al español" htmlFor="spanish-translation">
         <textarea
           id="spanish-translation"
           value={spanishTranslation}
@@ -217,10 +216,9 @@ export default function ContributionForm() {
           maxLength={2000}
           required
         />
-      </div>
+      </FormField>
 
-      <div className="form-field">
-        <label htmlFor="contributor-name">Tu nombre</label>
+      <FormField label="A k'aaba'" sublabel="Tu nombre" htmlFor="contributor-name">
         <input
           type="text"
           id="contributor-name"
@@ -230,11 +228,10 @@ export default function ContributionForm() {
           maxLength={200}
           required
         />
-      </div>
+      </FormField>
 
       <div className="form-row">
-        <div className="form-field">
-          <label htmlFor="dialect">Variante dialectal</label>
+        <FormField label="Bix a t'aan" sublabel="Variante dialectal" htmlFor="dialect">
           <select
             id="dialect"
             value={dialect}
@@ -244,9 +241,8 @@ export default function ContributionForm() {
               <option key={d.value} value={d.value}>{d.label}</option>
             ))}
           </select>
-        </div>
-        <div className="form-field">
-          <label htmlFor="source">¿Cómo aprendiste maya?</label>
+        </FormField>
+        <FormField label="Tu'ux a kanik" sublabel="¿Cómo aprendiste?" htmlFor="source">
           <select
             id="source"
             value={source}
@@ -256,33 +252,33 @@ export default function ContributionForm() {
               <option key={s.value} value={s.value}>{s.label}</option>
             ))}
           </select>
-        </div>
+        </FormField>
       </div>
 
       {/* Audio recording — progressive enhancement */}
       {supportsRecording && (
-        <div className="form-field">
-          <label>Audio (opcional)</label>
+        <FormField label="U juum a t'aan" sublabel="Audio (opcional)">
           {state === 'recording' ? (
-            <button
+            <Button
               type="button"
-              className="btn btn-record recording"
+              variant="record"
+              recording
               onClick={stopRecording}
               aria-label="Detener grabación"
             >
               ● {recordingSeconds}s — Detener
-            </button>
+            </Button>
           ) : (
-            <button
+            <Button
               type="button"
-              className="btn btn-record"
+              variant="record"
               onClick={startRecording}
               aria-label="Grabar audio / Ts'íib t'aan"
             >
               {audioBlob ? '✓ Audio grabado — Grabar de nuevo' : '○ Grabar audio'}
-            </button>
+            </Button>
           )}
-        </div>
+        </FormField>
       )}
 
       <div className="form-field consent-field">
@@ -304,28 +300,19 @@ export default function ContributionForm() {
         <p className="form-error" role="alert">{errorMsg}</p>
       )}
 
-      <button
+      <Button
         type="submit"
-        className="btn btn-primary"
+        variant="primary"
         disabled={state === 'submitting'}
       >
         {state === 'submitting' ? 'Enviando...' : 'Contribuir'}
-      </button>
+      </Button>
 
       <style>{`
         .contribution-form {
           display: flex;
           flex-direction: column;
           gap: var(--space-3);
-        }
-        .form-field {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-1);
-        }
-        .form-field label {
-          font-weight: 600;
-          font-size: 0.9rem;
         }
         .form-row {
           display: grid;
@@ -337,26 +324,13 @@ export default function ContributionForm() {
             grid-template-columns: 1fr;
           }
         }
-        textarea,
-        input[type="text"],
-        select {
-          padding: var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          background: white;
-          width: 100%;
-        }
-        textarea:focus,
-        input[type="text"]:focus,
-        select:focus {
-          outline: 2px solid var(--primary);
-          outline-offset: 2px;
-        }
         .consent-field label {
           display: flex;
+          flex-direction: row;
           align-items: flex-start;
           gap: var(--space-2);
           font-weight: 400;
+          font-size: 0.85rem;
           cursor: pointer;
         }
         .consent-field input[type="checkbox"] {
@@ -364,39 +338,6 @@ export default function ContributionForm() {
           width: 18px;
           height: 18px;
           flex-shrink: 0;
-        }
-        .btn {
-          padding: var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          cursor: pointer;
-          font-weight: 600;
-          min-height: 44px;
-          text-align: center;
-        }
-        .btn-primary {
-          background: var(--primary);
-          color: white;
-          border-color: var(--primary);
-        }
-        .btn-primary:hover {
-          opacity: 0.9;
-        }
-        .btn-primary:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-        .btn-record {
-          background: white;
-        }
-        .btn-record.recording {
-          background: #FEE;
-          border-color: var(--error);
-          color: var(--error);
-        }
-        .form-error {
-          color: var(--error);
-          font-size: 0.9rem;
         }
       `}</style>
     </form>

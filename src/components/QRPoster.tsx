@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import QRCode from 'qrcode';
+import { Button } from './ui';
 
 const SITE_URL = 'https://maayataan.org';
 
@@ -101,9 +102,9 @@ export default function QRPoster() {
     <div className="qr-poster">
       <canvas ref={canvasRef} className="poster-canvas" />
       {generated && (
-        <button type="button" className="btn btn-primary" onClick={downloadPoster}>
+        <Button variant="primary" onClick={downloadPoster}>
           Descargar póster
-        </button>
+        </Button>
       )}
       <style>{`
         .qr-poster {
@@ -116,18 +117,6 @@ export default function QRPoster() {
           max-width: 100%;
           border: 1px solid var(--surface);
           border-radius: var(--radius);
-        }
-        .btn {
-          padding: var(--space-3) var(--space-5);
-          border: none;
-          border-radius: var(--radius);
-          cursor: pointer;
-          font-weight: 600;
-          min-height: 44px;
-        }
-        .btn-primary {
-          background: var(--primary);
-          color: white;
         }
       `}</style>
     </div>

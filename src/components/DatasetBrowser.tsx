@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { Button, Card } from './ui';
 import type { Contribution, Dialect } from '../lib/database.types';
 
 const PAGE_SIZE = 20;
@@ -74,7 +75,7 @@ export default function DatasetBrowser() {
           <option value="sur">Sur</option>
           <option value="costa">Costa</option>
         </select>
-        <button type="submit" className="btn btn-primary">Buscar</button>
+        <Button type="submit" variant="primary">Buscar</Button>
       </form>
 
       {loading ? (
@@ -91,39 +92,39 @@ export default function DatasetBrowser() {
         <>
           <ul className="entry-list">
             {entries.map((entry) => (
-              <li key={entry.id} className="entry-card">
-                <p className="entry-maya">{entry.maya_text}</p>
-                <p className="entry-es">{entry.spanish_translation}</p>
-                <div className="entry-meta">
-                  <span>{entry.dialect}</span>
-                  <span>{entry.contributor_name}</span>
-                  {entry.audio_url && (
-                    <audio controls preload="none" src={entry.audio_url}>
-                      <track kind="captions" />
-                    </audio>
-                  )}
-                </div>
+              <li key={entry.id}>
+                <Card>
+                  <p className="entry-maya">{entry.maya_text}</p>
+                  <p className="entry-es">{entry.spanish_translation}</p>
+                  <div className="entry-meta">
+                    <span>{entry.dialect}</span>
+                    <span>{entry.contributor_name}</span>
+                    {entry.audio_url && (
+                      <audio controls preload="none" src={entry.audio_url}>
+                        <track kind="captions" />
+                      </audio>
+                    )}
+                  </div>
+                </Card>
               </li>
             ))}
           </ul>
 
           <div className="browser-pagination">
-            <button
+            <Button
               type="button"
-              className="btn"
               disabled={page === 0}
               onClick={() => setPage((p) => p - 1)}
             >
               ← Anterior
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
-              className="btn"
               disabled={!hasMore}
               onClick={() => setPage((p) => p + 1)}
             >
               Siguiente →
-            </button>
+            </Button>
           </div>
         </>
       )}
@@ -139,35 +140,9 @@ export default function DatasetBrowser() {
           flex: 1;
           min-width: 200px;
           padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          background: white;
         }
         .browser-filters select {
           padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          background: white;
-        }
-        .browser-filters input:focus,
-        .browser-filters select:focus {
-          outline: 2px solid var(--primary);
-          outline-offset: 2px;
-        }
-        .btn {
-          padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          background: white;
-          cursor: pointer;
-          font-weight: 600;
-          min-height: 44px;
-        }
-        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .btn-primary {
-          background: var(--primary);
-          color: white;
-          border-color: var(--primary);
         }
         .browser-status {
           color: var(--text-muted);
@@ -186,12 +161,6 @@ export default function DatasetBrowser() {
           display: flex;
           flex-direction: column;
           gap: var(--space-3);
-        }
-        .entry-card {
-          border: 1px solid var(--surface);
-          border-radius: var(--radius);
-          padding: var(--space-3);
-          background: white;
         }
         .entry-maya {
           font-weight: 600;

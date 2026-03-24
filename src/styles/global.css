@@ -3,6 +3,7 @@
 :root {
   --bg: #F5EDE0;
   --surface: #EDE3D0;
+  --card-bg: #FFFFFF;
   --primary: #1B6B5A;
   --primary-hover: #134A3F;
   --accent: #C4603C;
@@ -26,6 +27,38 @@
 
   --radius: 2px;
   --max-width: 720px;
+}
+
+/* ── Dark mode ── */
+
+[data-theme="dark"] {
+  --bg: #1A1A18;
+  --surface: #2A2722;
+  --card-bg: #2A2722;
+  --primary: #2D9B80;
+  --primary-hover: #3AB896;
+  --accent: #D4785A;
+  --alive: #E8A838;
+  --text: #F5EDE0;
+  --text-muted: #A09A94;
+  --error: #E05A4B;
+  --success: #4EA872;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1A18;
+    --surface: #2A2722;
+    --card-bg: #2A2722;
+    --primary: #2D9B80;
+    --primary-hover: #3AB896;
+    --accent: #D4785A;
+    --alive: #E8A838;
+    --text: #F5EDE0;
+    --text-muted: #A09A94;
+    --error: #E05A4B;
+    --success: #4EA872;
+  }
 }
 
 *,
@@ -94,4 +127,132 @@ textarea {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* ── Shared UI: Button ── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--surface);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 48px;
+  text-align: center;
+  transition: opacity 150ms ease-out;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-approve {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+}
+
+.btn-reject {
+  background: var(--card-bg);
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.btn-record {
+  background: var(--card-bg);
+}
+
+.btn-record.recording {
+  background: color-mix(in srgb, var(--error) 10%, var(--card-bg));
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--surface);
+  font-size: 0.85rem;
+}
+
+/* ── Shared UI: Form inputs ── */
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select {
+  padding: var(--space-3);
+  border: 1px solid var(--surface);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  width: 100%;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── Shared UI: FormField ── */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.form-field label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.field-label-maya {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.field-label-es {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.form-error {
+  color: var(--error);
+  font-size: 0.9rem;
+}
+
+/* ── Shared UI: Card ── */
+
+.card {
+  border: 1px solid var(--surface);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  background: var(--card-bg);
 }

@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from '../components/ThemeToggle';
+
 interface Props {
   title: string;
   description?: string;
@@ -15,6 +17,15 @@ const { title, description = 'Plataforma soberana de corpus lingüístico maya y
     <meta name="description" content={description} />
     <title>{title} — maayataan</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme') || 'system';
+        var resolved = t === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : t;
+        document.documentElement.setAttribute('data-theme', resolved);
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Ir al contenido</a>
@@ -24,6 +35,7 @@ const { title, description = 'Plataforma soberana de corpus lingüístico maya y
         <div class="nav-links">
           <a href="/browse">Corpus</a>
           <a href="/story">Historia</a>
+          <ThemeToggle client:load />
         </div>
       </div>
     </nav>
