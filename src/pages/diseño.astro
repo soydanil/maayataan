@@ -1,0 +1,513 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sistema de diseño" description="Guía visual del sistema de diseño de maayataan">
+  <section class="ds-hero">
+    <h1 class="ds-title">Sistema de diseño</h1>
+    <p class="ds-sub">Colores, tipografía, componentes y patrones que usamos en maayataan.</p>
+  </section>
+
+  <div class="stratum"></div>
+
+  <!-- Colors -->
+  <section class="ds-section">
+    <h2 class="section-maya">Boone'ex</h2>
+    <p class="section-es">Colores</p>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--bg); border: 1px solid var(--surface);"></div>
+        <p class="color-name">Sascab</p>
+        <p class="color-token">--bg</p>
+        <p class="color-hex" data-var="--bg"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--surface);"></div>
+        <p class="color-name">Chukum</p>
+        <p class="color-token">--surface</p>
+        <p class="color-hex" data-var="--surface"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--card-bg); border: 1px solid var(--surface);"></div>
+        <p class="color-name">Card</p>
+        <p class="color-token">--card-bg</p>
+        <p class="color-hex" data-var="--card-bg"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--primary);"></div>
+        <p class="color-name">Cenote</p>
+        <p class="color-token">--primary</p>
+        <p class="color-hex" data-var="--primary"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--primary-hover);"></div>
+        <p class="color-name">Deep Cenote</p>
+        <p class="color-token">--primary-hover</p>
+        <p class="color-hex" data-var="--primary-hover"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--accent);"></div>
+        <p class="color-name">Terracotta</p>
+        <p class="color-token">--accent</p>
+        <p class="color-hex" data-var="--accent"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--alive);"></div>
+        <p class="color-name">K'an</p>
+        <p class="color-token">--alive</p>
+        <p class="color-hex" data-var="--alive"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--text);"></div>
+        <p class="color-name">Obsidian</p>
+        <p class="color-token">--text</p>
+        <p class="color-hex" data-var="--text"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--text-muted);"></div>
+        <p class="color-name">Smoke</p>
+        <p class="color-token">--text-muted</p>
+        <p class="color-hex" data-var="--text-muted"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--error);"></div>
+        <p class="color-name">Achiote</p>
+        <p class="color-token">--error</p>
+        <p class="color-hex" data-var="--error"></p>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--success);"></div>
+        <p class="color-name">Milpa</p>
+        <p class="color-token">--success</p>
+        <p class="color-hex" data-var="--success"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="stratum"></div>
+
+  <!-- Typography -->
+  <section class="ds-section">
+    <h2 class="section-maya">Ts'íib</h2>
+    <p class="section-es">Tipografía</p>
+
+    <div class="type-specimen">
+      <div class="type-row">
+        <p class="type-label">Display — Fraunces</p>
+        <p class="type-sample type-display">Ko'ox t'aanik maaya</p>
+      </div>
+      <div class="type-row">
+        <p class="type-label">Body — DM Sans</p>
+        <p class="type-sample type-body">Más de 800,000 personas hablan maya yucateco. Cada voz que se suma construye el corpus que hará posible la tecnología en maya.</p>
+      </div>
+      <div class="type-row">
+        <p class="type-label">Mono — JetBrains Mono</p>
+        <p class="type-sample type-mono">ts'aak · ch'a'ak · k'iin · 2026-03-24 · #1B6B5A</p>
+      </div>
+    </div>
+
+    <div class="type-scale">
+      <p class="type-label">Escala tipográfica</p>
+      <p class="scale-item" style="font-size: 2.5rem; font-family: var(--font-display); font-weight: 900;">2.5rem — Hero</p>
+      <p class="scale-item" style="font-size: 1.5rem; font-family: var(--font-display); font-weight: 700;">1.5rem — H1</p>
+      <p class="scale-item" style="font-size: 1.3rem; font-family: var(--font-display); font-weight: 700;">1.3rem — H2</p>
+      <p class="scale-item" style="font-size: 1.05rem; font-weight: 600;">1.05rem — H3 / Label</p>
+      <p class="scale-item" style="font-size: 1rem;">1rem — Body</p>
+      <p class="scale-item" style="font-size: 0.9rem; color: var(--text-muted);">0.9rem — Secondary</p>
+      <p class="scale-item" style="font-size: 0.85rem; color: var(--text-muted);">0.85rem — Small</p>
+      <p class="scale-item" style="font-size: 0.65rem; font-family: var(--font-mono); color: var(--text-muted);">0.65rem — Caption / Label ES</p>
+    </div>
+  </section>
+
+  <div class="stratum"></div>
+
+  <!-- Bilingual pattern -->
+  <section class="ds-section">
+    <h2 class="section-maya">Ka'ap'éel t'aan</h2>
+    <p class="section-es">Patrón bilingüe</p>
+
+    <div class="bilingual-demo">
+      <div class="bilingual-example">
+        <p class="field-label-maya">A k'aaba'</p>
+        <p class="field-label-es">Tu nombre</p>
+      </div>
+      <div class="bilingual-example">
+        <p class="field-label-maya">Bix a t'aan</p>
+        <p class="field-label-es">Variante dialectal</p>
+      </div>
+      <div class="bilingual-example">
+        <p class="field-label-maya">U juum a t'aan</p>
+        <p class="field-label-es">Audio (opcional)</p>
+      </div>
+    </div>
+    <p class="ds-note">Maya en Fraunces bold (prominente). Español en JetBrains Mono pequeño (secundario).</p>
+  </section>
+
+  <div class="stratum"></div>
+
+  <!-- Spacing -->
+  <section class="ds-section">
+    <h2 class="section-maya">Núukbesaj</h2>
+    <p class="section-es">Espaciado</p>
+
+    <div class="spacing-scale">
+      <div class="spacing-row">
+        <span class="spacing-label">--space-1</span>
+        <div class="spacing-bar" style="width: 4px;"></div>
+        <span class="spacing-value">4px</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">--space-2</span>
+        <div class="spacing-bar" style="width: 8px;"></div>
+        <span class="spacing-value">8px</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">--space-3</span>
+        <div class="spacing-bar" style="width: 16px;"></div>
+        <span class="spacing-value">16px</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">--space-4</span>
+        <div class="spacing-bar" style="width: 24px;"></div>
+        <span class="spacing-value">24px</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">--space-5</span>
+        <div class="spacing-bar" style="width: 32px;"></div>
+        <span class="spacing-value">32px</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">--space-6</span>
+        <div class="spacing-bar" style="width: 48px;"></div>
+        <span class="spacing-value">48px</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">--space-7</span>
+        <div class="spacing-bar" style="width: 64px;"></div>
+        <span class="spacing-value">64px</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stratum"></div>
+
+  <!-- Components -->
+  <section class="ds-section">
+    <h2 class="section-maya">Ba'alo'ob</h2>
+    <p class="section-es">Componentes</p>
+
+    <h3 class="comp-title">Botones</h3>
+    <div class="comp-row">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn">Secondary</button>
+      <button class="btn btn-approve">Aprobar</button>
+      <button class="btn btn-reject">Rechazar</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-primary" disabled>Disabled</button>
+    </div>
+
+    <h3 class="comp-title">Inputs</h3>
+    <div class="comp-inputs">
+      <div class="form-field">
+        <label>
+          <span class="field-label-maya">A k'aaba'</span>
+          <span class="field-label-es">Tu nombre</span>
+        </label>
+        <input type="text" placeholder="Ej. María Chan" />
+      </div>
+      <div class="form-field">
+        <label>
+          <span class="field-label-maya">Bix a t'aan</span>
+          <span class="field-label-es">Variante dialectal</span>
+        </label>
+        <select>
+          <option>Oriente</option>
+          <option>Noroccidente</option>
+          <option>Centro</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>
+          <span class="field-label-maya">A t'aan</span>
+          <span class="field-label-es">Mensaje</span>
+        </label>
+        <textarea rows="2" placeholder="Escribe aquí..."></textarea>
+      </div>
+    </div>
+
+    <h3 class="comp-title">Card</h3>
+    <div class="card">
+      <p style="font-weight: 600;">Jach ki'imak in wóol</p>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Estoy muy contento</p>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: var(--space-2);">María · Oriente · Hablante nativo</p>
+    </div>
+
+    <h3 class="comp-title">Stratum (separador)</h3>
+    <div class="stratum"></div>
+    <p class="ds-note">4px de alto, color --surface. Separa secciones como estratos de piedra.</p>
+  </section>
+
+  <div class="stratum"></div>
+
+  <!-- Anti-patterns -->
+  <section class="ds-section">
+    <h2 class="section-maya">Ma' beetik</h2>
+    <p class="section-es">Lo que NO hacemos</p>
+    <ul class="anti-list">
+      <li>Gradientes púrpura/violeta</li>
+      <li>Grids de 3 columnas con íconos en círculos</li>
+      <li>Centrar todo</li>
+      <li>Blobs decorativos, divisores SVG ondulados</li>
+      <li>Emoji como elementos de diseño</li>
+      <li>Copy genérico ("Bienvenido a...", "Desbloquea el poder de...")</li>
+      <li>Estética "humanitaria neutral" — sage suave + cards redondeados</li>
+      <li>Patrones "étnicos" de clip-art o pirámides de stock</li>
+      <li>Botones pill enormes flotando en whitespace</li>
+    </ul>
+  </section>
+</Layout>
+
+<script>
+  // Read computed CSS custom property values and display them
+  document.querySelectorAll('.color-hex[data-var]').forEach((el) => {
+    const varName = el.getAttribute('data-var');
+    if (varName) {
+      const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+      el.textContent = value;
+    }
+  });
+
+  // Re-read on theme change
+  const observer = new MutationObserver(() => {
+    document.querySelectorAll('.color-hex[data-var]').forEach((el) => {
+      const varName = el.getAttribute('data-var');
+      if (varName) {
+        const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+        el.textContent = value;
+      }
+    });
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+</script>
+
+<style>
+  .ds-hero {
+    padding: var(--space-5) 0;
+  }
+
+  .ds-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .ds-sub {
+    color: var(--text-muted);
+  }
+
+  .stratum {
+    height: 4px;
+    background: var(--surface);
+    margin: var(--space-5) 0;
+  }
+
+  .ds-section {
+    padding: var(--space-3) 0;
+  }
+
+  .section-maya {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .section-es {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-4);
+  }
+
+  .ds-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: var(--space-3);
+  }
+
+  /* Colors */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .color-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .color-swatch {
+    height: 64px;
+    border-radius: var(--radius);
+  }
+
+  .color-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .color-token {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  .color-hex {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  /* Typography */
+  .type-specimen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .type-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .type-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .type-display {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .type-body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .type-mono {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .scale-item {
+    line-height: 1.3;
+  }
+
+  /* Bilingual */
+  .bilingual-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .bilingual-example {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* Spacing */
+  .spacing-scale {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .spacing-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .spacing-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .spacing-bar {
+    height: 16px;
+    background: var(--primary);
+    border-radius: var(--radius);
+  }
+
+  .spacing-value {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  /* Components */
+  .comp-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .comp-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .comp-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 400px;
+  }
+
+  /* Anti-patterns */
+  .anti-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .anti-list li {
+    padding-left: var(--space-4);
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .anti-list li::before {
+    content: '×';
+    position: absolute;
+    left: 0;
+    color: var(--error);
+    font-weight: 700;
+  }
+</style>

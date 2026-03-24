@@ -29,6 +29,9 @@
 /aliados
   Cache-Control: no-cache
 
+/diseño
+  Cache-Control: no-cache
+
 # Hashed assets (JS, CSS) — cache forever
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
