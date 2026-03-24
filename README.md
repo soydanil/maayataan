@@ -15,8 +15,8 @@ El nombre viene del maya: **maaya** (maya) + **t'aan** (lengua, voz, palabra), *
 ## Cómo funciona
 
 1. **T'aan** — Escribe o graba una frase en maya y su traducción al español.
-2. **Ts'aak** — La comunidad valida que la contribución sea correcta.
-3. **Séeb** — El corpus crece y queda abierto para que cualquiera lo use.
+2. **Jaajkúunsik** — La comunidad valida que la contribución sea correcta.
+3. **Ts'o'okij** — El corpus crece y queda abierto para que cualquiera lo use.
 
 ## Quién puede participar
 
@@ -115,8 +115,8 @@ The name comes from Maya: **maaya** (Maya) + **t'aan** (language, voice, word), 
 ## How it works
 
 1. **T'aan** — Write or record a phrase in Maya with its Spanish translation.
-2. **Ts'aak** — The community validates that the contribution is correct.
-3. **Séeb** — The corpus grows and stays open for anyone to use.
+2. **Jaajkúunsik** — The community validates that the contribution is correct.
+3. **Ts'o'okij** — The corpus grows and stays open for anyone to use.
 
 ## Who can participate
 
