@@ -1,0 +1,654 @@
+---
+const title = 'Presentación — maayataan';
+const description = 'Plataforma abierta de corpus lingüístico maya yucateco para IA';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme') || 'system';
+        var resolved = t === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : t;
+        document.documentElement.setAttribute('data-theme', resolved);
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Progress indicator -->
+    <div class="progress" id="progress" aria-hidden="true">
+      <button class="progress-dot active" data-slide="0"></button>
+      <button class="progress-dot" data-slide="1"></button>
+      <button class="progress-dot" data-slide="2"></button>
+      <button class="progress-dot" data-slide="3"></button>
+      <button class="progress-dot" data-slide="4"></button>
+    </div>
+
+    <!-- Slide counter -->
+    <div class="counter" id="counter" aria-hidden="true">
+      <span class="counter-current">1</span><span class="counter-sep">/</span><span class="counter-total">5</span>
+    </div>
+
+    <!-- Back to site -->
+    <a href="/" class="back-link" aria-label="Volver al inicio">maayataan</a>
+
+    <!-- Slides container -->
+    <div class="deck" id="deck">
+
+      <!-- 1. El problema -->
+      <section class="slide slide-problem" data-index="0">
+        <div class="slide-inner">
+          <p class="slide-label">01</p>
+          <h1 class="slide-maya">Mix máak u<br>yu'ubik máak</h1>
+          <p class="slide-es">Nadie escucha a nadie</p>
+          <div class="slide-body">
+            <p class="stat">
+              <span class="stat-number">800,000+</span>
+              <span class="stat-label">personas hablan maya yucateco</span>
+            </p>
+            <p class="stat">
+              <span class="stat-number">~0</span>
+              <span class="stat-label">datos digitales para entrenar IA en maya</span>
+            </p>
+            <p class="slide-text">Sin datos, no hay traductores, asistentes de voz, ni herramientas educativas. La lengua queda fuera de la tecnología.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. La solución -->
+      <section class="slide slide-solution" data-index="1">
+        <div class="slide-inner">
+          <p class="slide-label">02</p>
+          <h1 class="slide-maya">maayataan</h1>
+          <p class="slide-es">Plataforma abierta de corpus lingüístico</p>
+          <div class="slide-body">
+            <p class="slide-text">Open-source. Diseñada para recolectar, validar y estructurar datos lingüísticos en maya yucateco — texto, traducciones y audio — listos para entrenar modelos de IA.</p>
+            <p class="slide-text">Construida por y para la comunidad maya hablante.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Cómo funciona -->
+      <section class="slide slide-how" data-index="2">
+        <div class="slide-inner">
+          <p class="slide-label">03</p>
+          <h1 class="slide-maya">Bix u meyaj</h1>
+          <p class="slide-es">Cómo funciona</p>
+          <div class="slide-body">
+            <div class="flow">
+              <div class="flow-step">
+                <span class="flow-name">T'aan</span>
+                <span class="flow-desc">Escribe o graba una frase en maya y su traducción al español.</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-step">
+                <span class="flow-name">Ts'aak</span>
+                <span class="flow-desc">La comunidad valida que la contribución sea correcta.</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"></div>
+              <div class="flow-step">
+                <span class="flow-name">Séeb</span>
+                <span class="flow-desc">El corpus crece y queda abierto para que cualquiera lo use.</span>
+              </div>
+            </div>
+            <p class="slide-footnote">Astro + React + Supabase — desplegado en Cloudflare Workers</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Quiénes somos -->
+      <section class="slide slide-team" data-index="3">
+        <div class="slide-inner">
+          <p class="slide-label">04</p>
+          <h1 class="slide-maya">Máax to'on</h1>
+          <p class="slide-es">Quiénes somos</p>
+          <div class="slide-body">
+            <div class="team">
+              <div class="team-member">
+                <p class="member-name">Alberto Ceballos Villanueva</p>
+                <p class="member-handle">@nosoypoot</p>
+              </div>
+              <div class="team-member">
+                <p class="member-name">Danil.ai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Visión -->
+      <section class="slide slide-vision" data-index="4">
+        <div class="slide-inner">
+          <p class="slide-label">05</p>
+          <h1 class="slide-maya">Bix k-ilik<br>samal</h1>
+          <p class="slide-es">Cómo vemos el mañana</p>
+          <div class="slide-body">
+            <p class="slide-text">El corpus como infraestructura pública. Un bien común digital que habilita:</p>
+            <ul class="vision-list">
+              <li>Traductores automáticos maya-español</li>
+              <li>Asistentes de voz en lengua maya</li>
+              <li>Herramientas educativas para nuevas generaciones</li>
+              <li>Modelos de IA que entiendan y hablen maya</li>
+            </ul>
+            <p class="slide-text">La tecnología debe hablar todas las lenguas.</p>
+            <a href="/contribuir" class="slide-cta">Ts'aik a t'aan — Contribuir</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Desktop nav hints -->
+    <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Slide anterior" disabled>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="nav-arrow nav-next" id="nextBtn" aria-label="Siguiente slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <script is:inline>
+      (function() {
+        const deck = document.getElementById('deck');
+        const dots = document.querySelectorAll('.progress-dot');
+        const counterCurrent = document.querySelector('.counter-current');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+        let current = 0;
+        let isDesktop = window.innerWidth >= 768;
+
+        function updateUI(index) {
+          current = index;
+          dots.forEach(function(d, i) {
+            d.classList.toggle('active', i === index);
+          });
+          counterCurrent.textContent = index + 1;
+          prevBtn.disabled = index === 0;
+          nextBtn.disabled = index === total - 1;
+        }
+
+        function goTo(index) {
+          if (index < 0 || index >= total) return;
+          if (isDesktop) {
+            deck.style.transform = 'translateX(' + (-index * 100) + 'vw)';
+          } else {
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+          }
+          updateUI(index);
+        }
+
+        // Desktop: horizontal layout, keyboard nav
+        function setupDesktop() {
+          deck.classList.add('deck-horizontal');
+          deck.classList.remove('deck-vertical');
+          goTo(current);
+        }
+
+        // Mobile: vertical scroll-snap
+        function setupMobile() {
+          deck.classList.add('deck-vertical');
+          deck.classList.remove('deck-horizontal');
+          deck.style.transform = '';
+        }
+
+        function handleResize() {
+          var wasDesktop = isDesktop;
+          isDesktop = window.innerWidth >= 768;
+          if (wasDesktop !== isDesktop) {
+            if (isDesktop) setupDesktop();
+            else setupMobile();
+          }
+        }
+
+        if (isDesktop) setupDesktop();
+        else setupMobile();
+
+        window.addEventListener('resize', handleResize);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            goTo(current + 1);
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            goTo(current - 1);
+          }
+        });
+
+        // Arrow buttons
+        prevBtn.addEventListener('click', function() { goTo(current - 1); });
+        nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+        // Dot navigation
+        dots.forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            goTo(parseInt(dot.dataset.slide));
+          });
+        });
+
+        // Mobile: detect current slide on scroll
+        if (!isDesktop) {
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                updateUI(parseInt(entry.target.dataset.index));
+              }
+            });
+          }, { threshold: 0.6 });
+          slides.forEach(function(s) { observer.observe(s); });
+        }
+
+        // Desktop: wheel to navigate slides
+        var wheelTimeout;
+        deck.addEventListener('wheel', function(e) {
+          if (!isDesktop) return;
+          e.preventDefault();
+          clearTimeout(wheelTimeout);
+          wheelTimeout = setTimeout(function() {
+            if (e.deltaY > 0 || e.deltaX > 0) goTo(current + 1);
+            else goTo(current - 1);
+          }, 80);
+        }, { passive: false });
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
+
+<style>
+  /* ── Base ── */
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* ── Progress dots ── */
+  .progress {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    gap: 8px;
+  }
+
+  /* Mobile: bottom center, horizontal */
+  .progress {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+  }
+
+  @media (min-width: 768px) {
+    /* Desktop: right center, vertical */
+    .progress {
+      right: 32px;
+      top: 50%;
+      bottom: auto;
+      left: auto;
+      transform: translateY(-50%);
+      flex-direction: column;
+    }
+  }
+
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 200ms ease-out;
+  }
+
+  .progress-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.3);
+  }
+
+  /* ── Counter ── */
+  .counter {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 100;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  @media (min-width: 768px) {
+    .counter {
+      right: 32px;
+    }
+  }
+
+  /* ── Back link ── */
+  .back-link {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 100;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* ── Deck: vertical (mobile) ── */
+  .deck-vertical {
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .deck-vertical .slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* ── Deck: horizontal (desktop) ── */
+  .deck-horizontal {
+    display: flex;
+    height: 100vh;
+    width: fit-content;
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .deck-horizontal .slide {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+  }
+
+  /* ── Slide base ── */
+  .slide {
+    display: flex;
+    align-items: center;
+    padding: 80px 24px 60px;
+  }
+
+  @media (min-width: 768px) {
+    .slide {
+      padding: 64px 80px;
+    }
+  }
+
+  .slide-inner {
+    max-width: 640px;
+    width: 100%;
+  }
+
+  /* ── Slide typography ── */
+  .slide-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .slide-maya {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .slide-es {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .slide-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .slide-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 520px;
+  }
+
+  .slide-footnote {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  /* ── Stats ── */
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Flow steps ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    background: var(--surface);
+    border-radius: var(--radius);
+  }
+
+  .flow-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+  }
+
+  .flow-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .flow-arrow {
+    width: 2px;
+    height: 16px;
+    background: var(--text-muted);
+    margin-left: 24px;
+    opacity: 0.3;
+  }
+
+  @media (min-width: 768px) {
+    .flow {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .flow-step {
+      flex: 1;
+    }
+
+    .flow-arrow {
+      width: 32px;
+      height: 2px;
+      margin: 28px 0 0;
+      flex-shrink: 0;
+    }
+  }
+
+  /* ── Team ── */
+  .team {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .member-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .member-handle {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Vision list ── */
+  .vision-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 0;
+  }
+
+  .vision-list li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .vision-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 2px;
+    background: var(--primary);
+  }
+
+  /* ── CTA ── */
+  .slide-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 16px;
+    text-decoration: none;
+    transition: background 150ms ease-out;
+    min-height: 48px;
+  }
+
+  .slide-cta:hover {
+    background: var(--primary-hover);
+    text-decoration: none;
+  }
+
+  /* ── Nav arrows (desktop only) ── */
+  .nav-arrow {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .nav-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--surface);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 150ms ease-out;
+    }
+
+    .nav-arrow:hover:not(:disabled) {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.2;
+      cursor: default;
+    }
+
+    .nav-prev {
+      left: 32px;
+    }
+
+    .nav-next {
+      right: 64px;
+    }
+  }
+
+  /* ── Slide accent colors ── */
+  .slide-problem .stat-number {
+    color: var(--accent);
+  }
+
+  .slide-solution .slide-maya {
+    color: var(--primary);
+  }
+
+  .slide-vision .slide-maya {
+    color: var(--primary);
+  }
+</style>
