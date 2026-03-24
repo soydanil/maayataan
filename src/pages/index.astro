@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LiveCounter from '../components/LiveCounter';
+import CorpusCount from '../components/CorpusCount';
 ---
 
 <Layout title="Inicio">
@@ -8,6 +9,7 @@ import LiveCounter from '../components/LiveCounter';
     <p class="hero-label">Corpus abierto de maya yucateco</p>
     <h1 class="hero-maya">Ko'ox t'aanik<br>maaya</h1>
     <p class="hero-es">Hablemos maya</p>
+    <CorpusCount variant="hero" client:load />
     <a href="/contribuir" class="hero-cta">Ts'aik a t'aan — Contribuir</a>
   </section>
 
