@@ -1,0 +1,10 @@
+name = "maayataan-upload"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+[vars]
+ALLOWED_ORIGIN = "http://localhost:4321"
+
+[[r2_buckets]]
+binding = "AUDIO_BUCKET"
+bucket_name = "maayataan-audio"

@@ -102,19 +102,25 @@ export default function ContributionForm() {
     try {
       let audioUrl: string | null = null;
 
-      // Upload audio if present
+      // Upload audio via Cloudflare Worker → R2
       if (audioBlob) {
-        const fileName = `${crypto.randomUUID()}.webm`;
-        const { error: uploadErr } = await supabase.storage
-          .from('audio')
-          .upload(fileName, audioBlob, { contentType: 'audio/webm' });
+        try {
+          const workerUrl = import.meta.env.PUBLIC_UPLOAD_WORKER_URL || 'http://localhost:8787';
+          const { uploadUrl, publicUrl } = await fetch(`${workerUrl}/upload-url`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contentType: audioBlob.type || 'audio/webm' }),
+          }).then((r) => r.json());
 
-        if (uploadErr) {
-          // If storage isn't set up, continue without audio
-          console.warn('Audio upload failed, continuing without audio:', uploadErr.message);
-        } else {
-          const { data: urlData } = supabase.storage.from('audio').getPublicUrl(fileName);
-          audioUrl = urlData.publicUrl;
+          await fetch(uploadUrl, {
+            method: 'PUT',
+            headers: { 'Content-Type': audioBlob.type || 'audio/webm' },
+            body: audioBlob,
+          });
+
+          audioUrl = publicUrl;
+        } catch (uploadErr) {
+          console.warn('Audio upload failed, continuing without audio:', uploadErr);
         }
       }
 
