@@ -61,7 +61,11 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
               <span class="stat-label">datos digitales para entrenar IA en maya</span>
             </p>
             <p class="slide-text">Sin datos, no hay traductores, asistentes de voz, ni herramientas educativas. La lengua queda fuera de la tecnología.</p>
-            <CorpusCount variant="slide" client:load />
+            <div class="slide-counts">
+              <CorpusCount variant="slide" client:load />
+              <CorpusCount variant="slide" table="speakers_interest" client:load />
+              <CorpusCount variant="slide" table="allies_interest" client:load />
+            </div>
           </div>
         </div>
       </section>
@@ -155,7 +159,11 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
               <li>Modelos de IA que entiendan y hablen maya</li>
             </ul>
             <p class="slide-text">La tecnología debe hablar todas las lenguas.</p>
-            <CorpusCount variant="slide" client:load />
+            <div class="slide-counts">
+              <CorpusCount variant="slide" client:load />
+              <CorpusCount variant="slide" table="speakers_interest" client:load />
+              <CorpusCount variant="slide" table="allies_interest" client:load />
+            </div>
             <a href="/contribuir" class="slide-cta">Ts'aik a t'aan — Contribuir</a>
           </div>
         </div>
@@ -450,6 +458,12 @@ const description = 'Plataforma abierta de corpus lingüístico maya yucateco pa
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  .slide-counts {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
   .slide-text {
