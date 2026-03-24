@@ -183,7 +183,7 @@ export default function ContributionForm() {
             margin-bottom: var(--space-1);
           }
           .success-es {
-            color: var(--color-muted);
+            color: var(--text-muted);
             margin-bottom: var(--space-4);
           }
         `}</style>
@@ -341,7 +341,7 @@ export default function ContributionForm() {
         input[type="text"],
         select {
           padding: var(--space-3);
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           background: white;
           width: 100%;
@@ -349,7 +349,7 @@ export default function ContributionForm() {
         textarea:focus,
         input[type="text"]:focus,
         select:focus {
-          outline: 2px solid var(--color-primary);
+          outline: 2px solid var(--primary);
           outline-offset: 2px;
         }
         .consent-field label {
@@ -367,7 +367,7 @@ export default function ContributionForm() {
         }
         .btn {
           padding: var(--space-3);
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           cursor: pointer;
           font-weight: 600;
@@ -375,9 +375,9 @@ export default function ContributionForm() {
           text-align: center;
         }
         .btn-primary {
-          background: var(--color-primary);
+          background: var(--primary);
           color: white;
-          border-color: var(--color-primary);
+          border-color: var(--primary);
         }
         .btn-primary:hover {
           opacity: 0.9;
@@ -391,11 +391,11 @@ export default function ContributionForm() {
         }
         .btn-record.recording {
           background: #FEE;
-          border-color: var(--color-error);
-          color: var(--color-error);
+          border-color: var(--error);
+          color: var(--error);
         }
         .form-error {
-          color: var(--color-error);
+          color: var(--error);
           font-size: 0.9rem;
         }
       `}</style>

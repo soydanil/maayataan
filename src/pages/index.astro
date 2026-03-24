@@ -6,14 +6,18 @@ import ContributionForm from '../components/ContributionForm';
 
 <Layout title="Contribuye">
   <section class="hero">
-    <p class="hero-maya">Ko'ox kanik maaya</p>
+    <p class="hero-label">Corpus abierto de maya yucateco</p>
+    <h1 class="hero-maya">Ko'ox kanik<br>maaya</h1>
     <p class="hero-es">Aprendamos maya</p>
   </section>
 
   <LiveCounter client:load />
 
+  <div class="stratum"></div>
+
   <section class="form-section">
-    <h2>Comparte tu voz</h2>
+    <p class="form-label">Comparte tu voz</p>
+    <h2>Ts'aik a t'aan</h2>
     <p class="form-intro">
       Cada palabra que compartes ayuda a preservar y fortalecer el maya yucateco.
     </p>
@@ -23,33 +27,60 @@ import ContributionForm from '../components/ContributionForm';
 
 <style>
   .hero {
-    text-align: center;
-    padding: var(--space-5) 0;
+    padding: var(--space-7) 0 var(--space-5);
+  }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
   }
 
   .hero-maya {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   .hero-es {
-    color: var(--color-muted);
+    color: var(--text-muted);
     font-size: 1rem;
-    margin-top: var(--space-1);
+    margin-top: var(--space-2);
+  }
+
+  .stratum {
+    height: 4px;
+    background: var(--surface);
+    margin: var(--space-5) 0;
   }
 
   .form-section {
-    padding-top: var(--space-5);
+    padding-top: var(--space-3);
+  }
+
+  .form-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-1);
   }
 
   .form-section h2 {
-    font-size: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: var(--space-1);
   }
 
   .form-intro {
-    color: var(--color-muted);
+    color: var(--text-muted);
     margin-bottom: var(--space-4);
     font-size: 0.95rem;
   }

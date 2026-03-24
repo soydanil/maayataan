@@ -25,22 +25,22 @@ export default function QRPoster() {
     canvas.height = h;
 
     // Background
-    ctx.fillStyle = '#FAF3E8';
+    ctx.fillStyle = '#F5EDE0';
     ctx.fillRect(0, 0, w, h);
 
     // Top accent
-    ctx.fillStyle = '#B85C38';
+    ctx.fillStyle = '#C4603C';
     ctx.fillRect(0, 0, w, 6);
 
     // Title (Maya)
-    ctx.fillStyle = '#1A1A1A';
+    ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 36px -apple-system, BlinkMacSystemFont, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText("KO'OX KANIK MAAYA", w / 2, 100);
 
     // Subtitle (Spanish)
-    ctx.fillStyle = '#8B7355';
-    ctx.font = '20px -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.fillStyle = '#6B6560';
+    ctx.font = '20px DM Sans, sans-serif';
     ctx.fillText('Aprendamos maya', w / 2, 135);
 
     // QR code
@@ -52,7 +52,7 @@ export default function QRPoster() {
       const qrDataUrl = await QRCode.toDataURL(SITE_URL, {
         width: qrSize,
         margin: 2,
-        color: { dark: '#1A1A1A', light: '#FAF3E8' },
+        color: { dark: '#1A1A18', light: '#F5EDE0' },
       });
       const img = new Image();
       img.onload = () => {
@@ -69,22 +69,22 @@ export default function QRPoster() {
 
   function finishPoster(ctx: CanvasRenderingContext2D, w: number, h: number, y: number) {
     // CTA lines
-    ctx.fillStyle = '#1A1A1A';
-    ctx.font = '22px -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.fillStyle = '#1A1A18';
+    ctx.font = '22px DM Sans, sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText("Ts'aik a t'aan.", w / 2, y + 50);
 
-    ctx.fillStyle = '#8B7355';
-    ctx.font = '18px -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.fillStyle = '#6B6560';
+    ctx.font = '18px DM Sans, sans-serif';
     ctx.fillText('Comparte tu voz.', w / 2, y + 80);
 
     // URL
-    ctx.fillStyle = '#B85C38';
-    ctx.font = 'bold 20px -apple-system, BlinkMacSystemFont, sans-serif';
+    ctx.fillStyle = '#1B6B5A';
+    ctx.font = 'bold 20px DM Sans, sans-serif';
     ctx.fillText('maayataan.org', w / 2, y + 130);
 
     // Bottom accent
-    ctx.fillStyle = '#2D6A4F';
+    ctx.fillStyle = '#1B6B5A';
     ctx.fillRect(0, h - 6, w, 6);
   }
 
@@ -114,7 +114,7 @@ export default function QRPoster() {
         }
         .poster-canvas {
           max-width: 100%;
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
         }
         .btn {
@@ -126,7 +126,7 @@ export default function QRPoster() {
           min-height: 44px;
         }
         .btn-primary {
-          background: var(--color-primary);
+          background: var(--primary);
           color: white;
         }
       `}</style>

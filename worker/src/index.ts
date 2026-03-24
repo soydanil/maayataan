@@ -1,16 +1,17 @@
 interface Env {
   AUDIO_BUCKET: R2Bucket;
-  ALLOWED_ORIGIN: string;
+  ALLOWED_ORIGINS: string;
 }
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const ALLOWED_TYPES = ['audio/webm', 'audio/ogg', 'audio/mp3', 'audio/mpeg', 'audio/wav'];
 
-function corsHeaders(origin: string, allowedOrigin: string): HeadersInit {
-  const isAllowed = allowedOrigin === '*' || origin === allowedOrigin;
+function corsHeaders(origin: string, allowedOrigins: string): HeadersInit {
+  const origins = allowedOrigins.split(',').map((o) => o.trim());
+  const isAllowed = origins.includes('*') || origins.includes(origin);
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : '',
-    'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
   };
@@ -19,7 +20,7 @@ function corsHeaders(origin: string, allowedOrigin: string): HeadersInit {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get('Origin') || '';
-    const headers = corsHeaders(origin, env.ALLOWED_ORIGIN);
+    const headers = corsHeaders(origin, env.ALLOWED_ORIGINS);
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers });

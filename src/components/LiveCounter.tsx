@@ -43,14 +43,15 @@ export default function LiveCounter() {
         }
         .counter-number {
           display: block;
+          font-family: var(--font-mono);
           font-size: 3rem;
-          font-weight: 700;
-          color: var(--color-primary);
+          font-weight: 600;
+          color: var(--primary);
           line-height: 1;
         }
         .counter-label {
           display: block;
-          color: var(--color-muted);
+          color: var(--text-muted);
           margin-top: var(--space-2);
           font-size: 0.9rem;
         }

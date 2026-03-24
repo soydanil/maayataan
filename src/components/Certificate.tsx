@@ -31,7 +31,7 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
 
       <style>{`
         .certificate {
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           overflow: hidden;
           background: white;
@@ -42,23 +42,24 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
           height: 4px;
         }
         .cert-accent-top {
-          background: var(--color-primary);
+          background: var(--accent);
         }
         .cert-accent-bottom {
-          background: var(--color-secondary);
+          background: var(--primary);
         }
         .cert-body {
           padding: var(--space-5) var(--space-4);
           text-align: center;
         }
         .cert-heading-maya {
+          font-family: var(--font-display);
           font-size: 1.5rem;
           font-weight: 700;
-          color: var(--color-text);
+          color: var(--text);
         }
         .cert-heading-es {
           font-size: 0.9rem;
-          color: var(--color-muted);
+          color: var(--text-muted);
           margin-bottom: var(--space-4);
         }
         .cert-name {
@@ -67,21 +68,21 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
           margin-bottom: var(--space-1);
         }
         .cert-detail {
-          color: var(--color-muted);
+          color: var(--text-muted);
           margin-bottom: var(--space-2);
         }
         .cert-entry {
           font-weight: 600;
-          color: var(--color-secondary);
+          color: var(--primary);
           margin-bottom: var(--space-4);
         }
         .cert-date {
           font-size: 0.85rem;
-          color: var(--color-muted);
+          color: var(--text-muted);
         }
         .cert-url {
           font-size: 0.85rem;
-          color: var(--color-muted);
+          color: var(--text-muted);
         }
       `}</style>
     </div>

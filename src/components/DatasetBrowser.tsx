@@ -97,7 +97,11 @@ export default function DatasetBrowser() {
                 <div className="entry-meta">
                   <span>{entry.dialect}</span>
                   <span>{entry.contributor_name}</span>
-                  {entry.audio_url && <span>🔊</span>}
+                  {entry.audio_url && (
+                    <audio controls preload="none" src={entry.audio_url}>
+                      <track kind="captions" />
+                    </audio>
+                  )}
                 </div>
               </li>
             ))}
@@ -135,24 +139,24 @@ export default function DatasetBrowser() {
           flex: 1;
           min-width: 200px;
           padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           background: white;
         }
         .browser-filters select {
           padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           background: white;
         }
         .browser-filters input:focus,
         .browser-filters select:focus {
-          outline: 2px solid var(--color-primary);
+          outline: 2px solid var(--primary);
           outline-offset: 2px;
         }
         .btn {
           padding: var(--space-2) var(--space-3);
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           background: white;
           cursor: pointer;
@@ -161,12 +165,12 @@ export default function DatasetBrowser() {
         }
         .btn:disabled { opacity: 0.4; cursor: not-allowed; }
         .btn-primary {
-          background: var(--color-primary);
+          background: var(--primary);
           color: white;
-          border-color: var(--color-primary);
+          border-color: var(--primary);
         }
         .browser-status {
-          color: var(--color-muted);
+          color: var(--text-muted);
           text-align: center;
           padding: var(--space-5);
         }
@@ -175,8 +179,8 @@ export default function DatasetBrowser() {
           padding: var(--space-6) 0;
         }
         .empty-maya { font-size: 1.25rem; font-weight: 700; }
-        .empty-es { color: var(--color-muted); margin-bottom: var(--space-3); }
-        .empty-cta a { color: var(--color-primary); font-weight: 600; }
+        .empty-es { color: var(--text-muted); margin-bottom: var(--space-3); }
+        .empty-cta a { color: var(--primary); font-weight: 600; }
         .entry-list {
           list-style: none;
           display: flex;
@@ -184,7 +188,7 @@ export default function DatasetBrowser() {
           gap: var(--space-3);
         }
         .entry-card {
-          border: 1px solid var(--color-border);
+          border: 1px solid var(--surface);
           border-radius: var(--radius);
           padding: var(--space-3);
           background: white;
@@ -194,15 +198,21 @@ export default function DatasetBrowser() {
           margin-bottom: var(--space-1);
         }
         .entry-es {
-          color: var(--color-muted);
+          color: var(--text-muted);
           font-size: 0.9rem;
           margin-bottom: var(--space-2);
         }
         .entry-meta {
           display: flex;
+          flex-wrap: wrap;
+          align-items: center;
           gap: var(--space-3);
           font-size: 0.8rem;
-          color: var(--color-muted);
+          color: var(--text-muted);
+        }
+        .entry-meta audio {
+          height: 32px;
+          max-width: 100%;
         }
         .browser-pagination {
           display: flex;
