@@ -101,7 +101,7 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
     // CTA below card
     ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 36px sans-serif';
-    ctx.fillText("Ts'áj a T'aan", w / 2, cardY + cardH + 100);
+    ctx.fillText("Ts'áaj a T'aan", w / 2, cardY + cardH + 100);
 
     ctx.fillStyle = '#6B6560';
     ctx.font = '28px sans-serif';
