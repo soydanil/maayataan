@@ -91,8 +91,8 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
     // Hero text above card
     ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 72px serif';
-    ctx.fillText("Ko'ox t'aanik", w / 2, 300);
-    ctx.fillText('maaya', w / 2, 385);
+    ctx.fillText("Ko'ox t'anik", w / 2, 300);
+    ctx.fillText("Maay'aaj", w / 2, 385);
 
     ctx.fillStyle = '#6B6560';
     ctx.font = '32px sans-serif';
@@ -101,7 +101,7 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
     // CTA below card
     ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 36px sans-serif';
-    ctx.fillText("Ts'aik a t'aan", w / 2, cardY + cardH + 100);
+    ctx.fillText("Ts'áj a T'aan", w / 2, cardY + cardH + 100);
 
     ctx.fillStyle = '#6B6560';
     ctx.font = '28px sans-serif';
@@ -133,7 +133,7 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
 
     // Web Share API with file — works on mobile (WhatsApp, IG, FB, etc.)
     if (navigator.share && navigator.canShare) {
-      const shareData = { files: [file], title: "Ko'ox t'aanik maaya", text };
+      const shareData = { files: [file], title: "Ko'ox t'anik Maay'aaj", text };
       if (navigator.canShare(shareData)) {
         try {
           await navigator.share(shareData);

@@ -12,17 +12,17 @@ function applyTheme(theme: Theme) {
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>('system');
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
     const stored = localStorage.getItem('theme') as Theme | null;
-    const initial = stored || 'system';
+    const initial = stored || 'light';
     setTheme(initial);
     applyTheme(initial);
 
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     function handleChange() {
-      if ((localStorage.getItem('theme') || 'system') === 'system') {
+      if ((localStorage.getItem('theme') || 'light') === 'system') {
         applyTheme('system');
       }
     }

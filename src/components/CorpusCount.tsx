@@ -27,12 +27,19 @@ export default function CorpusCount({ variant = 'block', table = 'contributions'
       });
 
     const channel = supabase
-      .channel(`${table}-count-${variant}`)
+      .channel(`${table}-count-${variant}-${Math.random().toString(36).slice(2)}`)
       .on(
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table },
         () => {
           setCount((prev) => (prev !== null ? prev + 1 : 1));
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: 'DELETE', schema: 'public', table },
+        () => {
+          setCount((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
         }
       )
       .subscribe();

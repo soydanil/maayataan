@@ -37,7 +37,7 @@ export default function QRPoster() {
     ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 36px -apple-system, BlinkMacSystemFont, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText("KO'OX T'AANIK MAAYA", w / 2, 80);
+    ctx.fillText("KO'OX T'ANIK MAAY'AAJ", w / 2, 80);
 
     // Subtitle (Spanish)
     ctx.fillStyle = '#6B6560';
@@ -85,7 +85,7 @@ export default function QRPoster() {
     ctx.fillStyle = '#1A1A18';
     ctx.font = '22px DM Sans, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText("Ts'aik a t'aan.", w / 2, y + 50);
+    ctx.fillText("Ts'áj a T'aan.", w / 2, y + 50);
 
     ctx.fillStyle = '#6B6560';
     ctx.font = '18px DM Sans, sans-serif';

@@ -4,7 +4,7 @@ interface Env {
 }
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES = ['audio/webm', 'audio/ogg', 'audio/mp3', 'audio/mpeg', 'audio/wav'];
+const ALLOWED_TYPES = ['audio/webm', 'audio/ogg', 'audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/mp4'];
 
 function corsHeaders(origin: string, allowedOrigins: string): HeadersInit {
   const origins = allowedOrigins.split(',').map((o) => o.trim());
@@ -100,6 +100,7 @@ function extensionFor(contentType: string): string {
     'audio/mp3': 'mp3',
     'audio/mpeg': 'mp3',
     'audio/wav': 'wav',
+    'audio/mp4': 'm4a',
   };
   return map[contentType] || 'webm';
 }
