@@ -33,7 +33,9 @@ export default {
       const body = await request.json<{ contentType?: string }>();
       const contentType = body.contentType || 'audio/webm';
 
-      if (!ALLOWED_TYPES.includes(contentType)) {
+      // Strip codec params (e.g. "audio/mp4;codecs=mp4a.40.2" → "audio/mp4")
+      const baseType = contentType.split(';')[0].trim();
+      if (!ALLOWED_TYPES.includes(baseType)) {
         return Response.json(
           { error: 'Tipo de audio no permitido' },
           { status: 400, headers }

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { Button, FormField } from './ui';
 import Certificate from './Certificate';
@@ -37,9 +37,11 @@ export default function ContributionForm() {
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [recordingSeconds, setRecordingSeconds] = useState(0);
   const [successData, setSuccessData] = useState<{ entryNumber: number; totalCount: number } | null>(null);
-  const [supportsRecording] = useState(() =>
-    typeof window !== 'undefined' && typeof MediaRecorder !== 'undefined'
-  );
+  const [supportsRecording, setSupportsRecording] = useState(false);
+
+  useEffect(() => {
+    setSupportsRecording(typeof MediaRecorder !== 'undefined');
+  }, []);
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -119,11 +121,14 @@ export default function ContributionForm() {
       if (audioBlob) {
         try {
           const workerUrl = import.meta.env.PUBLIC_UPLOAD_WORKER_URL || 'http://localhost:8787';
-          const { uploadUrl, publicUrl } = await fetch(`${workerUrl}/upload-url`, {
+          const audioType = (audioBlob.type || 'audio/webm').split(';')[0].trim();
+          const res = await fetch(`${workerUrl}/upload-url`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contentType: audioBlob.type || 'audio/webm' }),
-          }).then((r) => r.json());
+            body: JSON.stringify({ contentType: audioType }),
+          });
+          if (!res.ok) throw new Error('Upload URL request failed');
+          const { uploadUrl, publicUrl } = await res.json();
 
           await fetch(uploadUrl, {
             method: 'PUT',
