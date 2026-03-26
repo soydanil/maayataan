@@ -9,9 +9,17 @@ const TABLE_CONFIG: Record<Table, { label: string }> = {
   allies_interest: { label: 'aliados registrados' },
 };
 
+const POLL_INTERVAL = 10_000; // 10 seconds
+
 interface Props {
   variant?: 'hero' | 'slide' | 'block';
   table?: Table;
+}
+
+async function fetchCount(table: Table): Promise<number | null> {
+  const { data, error } = await supabase.rpc('get_table_count', { table_name: table });
+  if (error || data === null) return null;
+  return data as number;
 }
 
 export default function CorpusCount({ variant = 'block', table = 'contributions' }: Props) {
@@ -19,34 +27,19 @@ export default function CorpusCount({ variant = 'block', table = 'contributions'
   const { label } = TABLE_CONFIG[table];
 
   useEffect(() => {
-    supabase
-      .from(table)
-      .select('*', { count: 'exact', head: true })
-      .then(({ count: c }) => {
+    // Initial fetch
+    fetchCount(table).then((c) => {
+      if (c !== null) setCount(c);
+    });
+
+    // Poll for updates
+    const interval = setInterval(() => {
+      fetchCount(table).then((c) => {
         if (c !== null) setCount(c);
       });
+    }, POLL_INTERVAL);
 
-    const channel = supabase
-      .channel(`${table}-count-${variant}-${Math.random().toString(36).slice(2)}`)
-      .on(
-        'postgres_changes',
-        { event: 'INSERT', schema: 'public', table },
-        () => {
-          setCount((prev) => (prev !== null ? prev + 1 : 1));
-        }
-      )
-      .on(
-        'postgres_changes',
-        { event: 'DELETE', schema: 'public', table },
-        () => {
-          setCount((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   const num = count ?? '—';

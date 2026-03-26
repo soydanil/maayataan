@@ -1,33 +1,22 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
+const POLL_INTERVAL = 10_000;
+
 export default function LiveCounter() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    // Initial count
-    supabase
-      .from('contributions')
-      .select('*', { count: 'exact', head: true })
-      .then(({ count: c }) => {
-        if (c !== null) setCount(c);
+    async function fetch() {
+      const { data, error } = await supabase.rpc('get_table_count', {
+        table_name: 'contributions',
       });
+      if (!error && data !== null) setCount(data as number);
+    }
 
-    // Realtime subscription
-    const channel = supabase
-      .channel('contributions-count')
-      .on(
-        'postgres_changes',
-        { event: 'INSERT', schema: 'public', table: 'contributions' },
-        () => {
-          setCount((prev) => (prev !== null ? prev + 1 : 1));
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    fetch();
+    const interval = setInterval(fetch, POLL_INTERVAL);
+    return () => clearInterval(interval);
   }, []);
 
   return (
