@@ -16,7 +16,7 @@ const COPY = {
     heroEs: 'Mi voz importa',
     roleMaya: 'Jach t\'aan maaya',
     roleEs: 'Hablante de maya yucateco',
-    ctaMaya: "Ko'ox t'anik Maay'aaj",
+    ctaMaya: "Ko'ox t'anik Maayáaj",
     ctaEs: 'Hablemos maya juntos',
     invite: 'Ayúdanos a registrar la voz de nuestro pueblo maya, súmate en:',
     accent: '#1B6B5A',

@@ -92,7 +92,7 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
     ctx.fillStyle = '#1A1A18';
     ctx.font = 'bold 72px serif';
     ctx.fillText("Ko'ox t'anik", w / 2, 300);
-    ctx.fillText("Maay'aaj", w / 2, 385);
+    ctx.fillText("Maayáaj", w / 2, 385);
 
     ctx.fillStyle = '#6B6560';
     ctx.font = '32px sans-serif';
@@ -133,7 +133,7 @@ export default function Certificate({ contributorName, entryNumber, totalCount }
 
     // Web Share API with file — works on mobile (WhatsApp, IG, FB, etc.)
     if (navigator.share && navigator.canShare) {
-      const shareData = { files: [file], title: "Ko'ox t'anik Maay'aaj", text };
+      const shareData = { files: [file], title: "Ko'ox t'anik Maayáaj", text };
       if (navigator.canShare(shareData)) {
         try {
           await navigator.share(shareData);
